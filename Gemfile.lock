@@ -2,7 +2,8 @@ PATH
   remote: .
   specs:
     nocms-seo (0.0.1)
-      rails (~> 4.0.4)
+      globalize (~> 4.0, >= 4.0.0)
+      rails (~> 4.0, >= 4.0.4)
 
 GEM
   remote: https://rubygems.org/
@@ -34,6 +35,9 @@ GEM
     arel (4.0.2)
     builder (3.1.4)
     erubis (2.7.0)
+    globalize (4.0.1)
+      activemodel (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
     hike (1.2.3)
     i18n (0.6.9)
     mail (2.5.4)
