@@ -1,3 +1,5 @@
+require 'globalize'
+
 module NoCms
   module Seo
     class Engine < ::Rails::Engine
