@@ -1,7 +1,7 @@
 module NoCms::Seo::SeoHelper
 
   def canonical_url_tag canonical_url = ''
-    canonical_url = canonical_url.blank? ? @seo_info.canonical_url : canonical_url
+    canonical_url = canonical_url.blank? ? @seo_info.canonical_url(request.host_with_port) : canonical_url
     content_tag :link, nil, rel: 'canonical', href: canonical_url unless canonical_url.blank?
   end
 
