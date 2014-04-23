@@ -8,7 +8,7 @@ class NoCms::Seo::Presenters::BasePresenter
     I18n.t('no_cms.seo.default_description')
   end
 
-  def canonical_url
+  def canonical_url host
     ""
   end
 
