@@ -15,4 +15,15 @@ module NoCms::Seo::SeoHelper
     content_tag :title, title unless title.blank?
   end
 
+  def robots_tag options = {}
+    options ||= {}
+    no_index = options[:no_index].nil? ? @seo_info.no_index? : options[:no_index]
+    no_follow = options[:no_follow].nil? ? @seo_info.no_follow? : options[:no_follow]
+    content = no_index ? "noindex" : "index"
+    content += ', '
+    content += no_follow ? "nofollow" : "follow"
+
+    content_tag :meta, nil, name: 'robots', content: content
+  end
+
 end

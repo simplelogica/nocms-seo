@@ -12,4 +12,12 @@ class NoCms::Seo::Presenters::BasePresenter
     ""
   end
 
+  def no_index?
+    false
+  end
+
+  def no_follow?
+    false
+  end
+
 end
