@@ -36,11 +36,4 @@ ActiveRecord::Schema.define(version: 20140526101137) do
 
   add_index "no_cms_seo_infos", ["target_id", "target_type"], name: "index_no_cms_seo_infos_on_target_id_and_target_type"
 
-  create_table "pages", force: true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
 end
