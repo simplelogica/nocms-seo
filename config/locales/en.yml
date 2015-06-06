@@ -3,3 +3,11 @@ en:
     seo:
       default_description: ""
       default_title: ""
+    admin:
+      seo:
+        infos:
+          form:
+            exclude_from_sitemap: Exclude from sitemap
+            no_follow: Don't follow links (meta nofollow)
+            no_index: Don't index (meta noindex)
+            robots_options: Options for robots and search engines

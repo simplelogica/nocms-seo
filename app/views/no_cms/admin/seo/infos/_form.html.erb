@@ -1,0 +1,24 @@
+<div class="row">
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</div>
+<div class="row">
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+</div>
+<div class="row">
+  <%= f.label :exclude_from_sitemap, t('.robots_options') %>
+
+  # <%= f.label :exclude_from_sitemap do %>
+    <%= f.check_box :exclude_from_sitemap %>
+    <%= t '.exclude_from_sitemap' %>
+  <% end -%>
+  <%= f.label :no_index do %>
+    <%= f.check_box :no_index %>
+    <%= t '.no_index' %>
+  <% end -%>
+  <%= f.label :no_follow do %>
+    <%= f.check_box :no_follow %>
+    <%= t '.no_follow' %>
+  <% end -%>
+</div>
