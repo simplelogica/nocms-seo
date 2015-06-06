@@ -65,7 +65,13 @@ Normally, this kind of logic is put on the model with a `seo_title` method or in
 
 Presenters are classes that handle the SEO logic (using site names, truncating descriptions...) and are called from the view. This way both model and view are free from SEO stuff.
 
-NoCMS SEO comes with two kinds of presenters:
+NoCMS SEO comes with two kinds of presenters (Base and SeoInfo, explained later in this document) but any class that define the following methods is compatible with the Helpers where this presenters are used:
+
+  - `title`
+  - `description`
+  - `canonical_url host`
+  - `no_index`
+  - `no_follow`
 
 
 #### Base Presenter
