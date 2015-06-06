@@ -143,8 +143,22 @@ The helper must be included in the `ApplicationController` with the following li
   helper NoCms::Seo::SeoHelper
 ```
 
-Development
-------------
+## Where is the admin interface?
+
+Since SEO information is always attached to another object there ¡s no separate admin interface for SEO information objects (although maybe it's an interesting feature).
+
+Instead of a separate admin interface this engine includes a partial that can be used to render it as a basic admin interface attachable to any edit view of any object that has SEO info attached.
+
+```ruby
+  <%= f.fields_for :seo_info do |f_seo| %>
+    <%= render 'no_cms/admin/seo/infos/form', f: f_seo %>
+  <% end -%>
+```
+
+You can overwrite the view to customize it.
+
+
+# Development
 
 ```
 $ git clone https://github.com/simplelogica/nocms-seo.git
