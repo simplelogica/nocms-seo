@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140415144514) do
+ActiveRecord::Schema.define(version: 20140526101137) do
 
   create_table "no_cms_seo_info_translations", force: true do |t|
     t.integer  "no_cms_seo_info_id"
@@ -29,15 +29,11 @@ ActiveRecord::Schema.define(version: 20140415144514) do
     t.string   "target_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "no_index",             default: false
+    t.boolean  "no_follow",            default: false
+    t.boolean  "exclude_from_sitemap", default: false
   end
 
   add_index "no_cms_seo_infos", ["target_id", "target_type"], name: "index_no_cms_seo_infos_on_target_id_and_target_type"
-
-  create_table "pages", force: true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

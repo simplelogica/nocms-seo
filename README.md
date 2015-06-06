@@ -143,3 +143,22 @@ The helper must be included in the `ApplicationController` with the following li
   helper NoCms::Seo::SeoHelper
 ```
 
+Development
+------------
+
+```
+$ git clone https://github.com/simplelogica/nocms-seo.git
+$ bundle install
+$ rake
+
+```
+
+Then tests should run (and pass, I hope...).
+
+Now we can run the dummy app console or server:
+
+```
+$ rake db:migrate
+$ cd spec/dummy
+spec/dummy$ rails console
+```
