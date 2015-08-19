@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ../
   specs:
     nocms-seo (0.0.1)
       globalize (>= 4.0.0, < 5.1)
@@ -145,6 +145,7 @@ DEPENDENCIES
   factory_girl
   faker
   nocms-seo!
+  rails (= 4.2.3)
   rspec-rails
   simplecov
   simplecov-json

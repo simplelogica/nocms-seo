@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140526101137) do
 
-  create_table "no_cms_seo_info_translations", force: true do |t|
+  create_table "no_cms_seo_info_translations", force: :cascade do |t|
     t.integer  "no_cms_seo_info_id"
     t.string   "locale"
     t.string   "title"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140526101137) do
 
   add_index "no_cms_seo_info_translations", ["no_cms_seo_info_id"], name: "index_no_cms_seo_info_translations_on_no_cms_seo_info_id"
 
-  create_table "no_cms_seo_infos", force: true do |t|
+  create_table "no_cms_seo_infos", force: :cascade do |t|
     t.integer  "target_id"
     t.string   "target_type"
     t.datetime "created_at"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20140526101137) do
     t.boolean  "exclude_from_sitemap", default: false
   end
 
-  add_index "no_cms_seo_infos", ["target_id", "target_type"], name: "index_no_cms_seo_infos_on_target_id_and_target_type"
+  add_index "no_cms_seo_infos", ["target_type", "target_id"], name: "index_no_cms_seo_infos_on_target_type_and_target_id"
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

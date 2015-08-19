@@ -15,6 +15,9 @@ gemspec
 
 group :test do
   gem 'faker'
-  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-rails'
   gem 'factory_girl'
+  gem 'appraisal'
+  gem 'simplecov'
+  gem 'simplecov-json'
 end
