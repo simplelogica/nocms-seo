@@ -8,6 +8,13 @@ module NoCms::Seo::Concerns::ModelWithSeo
     def seo_info
       super || build_seo_info
     end
+
+    def dup_with_seo
+      dupped_model = dup_without_seo
+      dupped_model.seo_info = seo_info.dup
+      dupped_model
+    end
+    alias_method_chain :dup, :seo
   end
 
 end
