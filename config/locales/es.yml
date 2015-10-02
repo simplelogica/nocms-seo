@@ -1,0 +1,23 @@
+es:
+  activerecord:
+    models:
+      no_cms/seo/info: Seo Info
+    attributes:
+      no_cms/seo/info:
+        description: Descripción
+        exclude_from_sitemap: Excluir del sitemap
+        no_follow: No seguir enlaces (meta nofollow)
+        no_index: No indexar (meta noindex)
+        robots_options: Opciones para robots y motores de búsqueda
+  no_cms:
+    seo:
+      default_description: ""
+      default_title: ""
+    admin:
+      seo:
+        infos:
+          form:
+            exclude_from_sitemap: Excluir del sitemap
+            no_follow: No seguir enlaces (meta nofollow)
+            no_index: No indexar (meta noindex)
+            robots_options: Opciones para robots y motores de búsqueda
