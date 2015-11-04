@@ -1,7 +1,7 @@
 PATH
   remote: ../
   specs:
-    nocms-seo (0.0.1)
+    nocms-seo (1.0.0)
       globalize (>= 4.0.0, < 5.1)
       rails (> 4.0, < 4.3)
 
@@ -125,6 +125,3 @@ DEPENDENCIES
   simplecov
   simplecov-json
   sqlite3
-
-BUNDLED WITH
-   1.10.6
