@@ -13,34 +13,37 @@
 
 ActiveRecord::Schema.define(version: 20140526101137) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "no_cms_seo_info_translations", force: :cascade do |t|
     t.integer  "no_cms_seo_info_id"
-    t.string   "locale"
-    t.string   "title"
+    t.string   "locale",             limit: 255
+    t.string   "title",              limit: 255
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "no_cms_seo_info_translations", ["no_cms_seo_info_id"], name: "index_no_cms_seo_info_translations_on_no_cms_seo_info_id"
+  add_index "no_cms_seo_info_translations", ["no_cms_seo_info_id"], name: "index_no_cms_seo_info_translations_on_no_cms_seo_info_id", using: :btree
 
   create_table "no_cms_seo_infos", force: :cascade do |t|
     t.integer  "target_id"
-    t.string   "target_type"
+    t.string   "target_type",          limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "no_index",             default: false
-    t.boolean  "no_follow",            default: false
-    t.boolean  "exclude_from_sitemap", default: false
+    t.boolean  "no_index",                         default: false
+    t.boolean  "no_follow",                        default: false
+    t.boolean  "exclude_from_sitemap",             default: false
   end
 
-  add_index "no_cms_seo_infos", ["target_type", "target_id"], name: "index_no_cms_seo_infos_on_target_type_and_target_id"
+  add_index "no_cms_seo_infos", ["target_id", "target_type"], name: "index_no_cms_seo_infos_on_target_id_and_target_type", using: :btree
 
   create_table "pages", force: :cascade do |t|
-    t.string   "title"
+    t.string   "title",      limit: 255
     t.text     "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end
