@@ -8,6 +8,9 @@ module NoCms::Seo::Concerns::ModelWithSeo
     has_many :seo_infos, class_name: 'NoCms::Seo::Info', as: :target
     accepts_nested_attributes_for :seo_infos
 
+    cattr_accessor :seo_info_kinds
+    self.seo_info_kinds = []
+
     def seo_info
       super || build_seo_info(kind: nil)
     end
@@ -27,9 +30,6 @@ module NoCms::Seo::Concerns::ModelWithSeo
   end
 
   module ClassMethods
-    cattr_accessor :seo_info_kinds
-    self.seo_info_kinds = []
-
     def add_seo_infos *kinds
       self.seo_info_kinds = kinds
       seo_info_kinds.each do |kind|
