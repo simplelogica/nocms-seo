@@ -2,11 +2,11 @@ module NoCms::Seo::Concerns::ModelWithSeo
   extend ActiveSupport::Concern
 
   included do
-    has_one :seo_info, class_name: 'NoCms::Seo::Info', as: :target
+    has_one :seo_info, -> { where(kind: nil) }, class_name: 'NoCms::Seo::Info', as: :target
     accepts_nested_attributes_for :seo_info
 
     def seo_info
-      super || build_seo_info
+      super || build_seo_info(kind: nil)
     end
 
     def dup_with_seo
