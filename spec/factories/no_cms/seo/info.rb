@@ -5,5 +5,10 @@ FactoryGirl.define do
     no_index { rand > 0.5 }
     no_follow { rand > 0.5 }
     exclude_from_sitemap { rand > 0.5 }
+    target { create :page }
+
+    factory :no_cms_mobile_seo_info do
+      kind :mobile
+    end
   end
 end
