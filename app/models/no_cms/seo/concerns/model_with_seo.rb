@@ -5,6 +5,9 @@ module NoCms::Seo::Concerns::ModelWithSeo
     has_one :seo_info, -> { where(kind: nil) }, class_name: 'NoCms::Seo::Info', as: :target
     accepts_nested_attributes_for :seo_info
 
+    has_many :seo_infos, class_name: 'NoCms::Seo::Info', as: :target
+    accepts_nested_attributes_for :seo_infos
+
     def seo_info
       super || build_seo_info(kind: nil)
     end
