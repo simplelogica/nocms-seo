@@ -20,4 +20,17 @@ module NoCms::Seo::Concerns::ModelWithSeo
     alias_method_chain :dup, :seo
   end
 
+  module ClassMethods
+    cattr_accessor :seo_info_kinds
+    self.seo_info_kinds = []
+
+    def add_seo_infos *kinds
+      self.seo_info_kinds = kinds
+      seo_info_kinds.each do |kind|
+        relation_name = "#{kind}_seo_info".to_sym
+        has_one relation_name, -> { where(kind: kind) }, class_name: 'NoCms::Seo::Info', as: :target
+        accepts_nested_attributes_for relation_name
+      end
+    end
+  end
 end
