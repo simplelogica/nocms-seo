@@ -15,6 +15,12 @@ module NoCms::Seo::Concerns::ModelWithSeo
     def dup_with_seo
       dupped_model = dup_without_seo
       dupped_model.seo_info = seo_info.dup
+      self.class.seo_info_kinds.each do |kind|
+        relation_name = "#{kind}_seo_info"
+        if current_seo_info = send(relation_name)
+          dupped_model.send("#{relation_name}=", current_seo_info.dup)
+        end
+      end
       dupped_model
     end
     alias_method_chain :dup, :seo
