@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526101137) do
+ActiveRecord::Schema.define(version: 20160218140633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,18 +32,20 @@ ActiveRecord::Schema.define(version: 20140526101137) do
     t.string   "target_type",          limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "no_index",                         default: false
-    t.boolean  "no_follow",                        default: false
-    t.boolean  "exclude_from_sitemap",             default: false
+    t.boolean  "no_index",             default: false
+    t.boolean  "no_follow",            default: false
+    t.boolean  "exclude_from_sitemap", default: false
+    t.string   "kind"
   end
 
-  add_index "no_cms_seo_infos", ["target_id", "target_type"], name: "index_no_cms_seo_infos_on_target_id_and_target_type", using: :btree
+  add_index "no_cms_seo_infos", ["target_id", "target_type", "kind"], name: "index_no_cms_seo_infos_kind", unique: true
+  add_index "no_cms_seo_infos", ["target_type", "target_id"], name: "index_no_cms_seo_infos_on_target_type_and_target_id"
 
   create_table "pages", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.text     "body"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

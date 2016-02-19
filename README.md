@@ -43,6 +43,20 @@ To attach this `NoCms::Seo::Info` model to a model of your own you just have to 
   include NoCms::Seo::Concerns::ModelWithSeo
 ```
 
+Add more kinds of seo infos with:
+
+```ruby
+  add_seo_infos :mobile, :facebook, :twitter
+```
+
+And use them in the same way:
+
+```ruby
+  object.mobile_seo_info
+  object.facebook_seo_info
+  object.twitter_seo_info
+```
+
 ### Controllers and concern
 
 As will be explained in the following section, nocms-seo uses Presenter classes to manage how SEO information is extracted for the current request.
@@ -114,6 +128,12 @@ module NoCms::Seo::Presenters
   end
 
 end
+```
+
+The kind of the seo info could be passed to the presenter:
+
+```ruby
+NoCms::Seo::Presenters::SeoInfoPresenter.new(object, :mobile)
 ```
 
 ### Helpers
