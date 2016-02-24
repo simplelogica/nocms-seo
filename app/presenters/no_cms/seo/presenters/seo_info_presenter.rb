@@ -1,23 +1,18 @@
 module NoCms::Seo::Presenters
-  class SeoInfoPresenter
+  class SeoInfoPresenter < BasePresenter
 
-    attr_accessor :seo_info, :base_presenter
+    attr_accessor :seo_info
 
     def initialize object, kind = nil
       self.seo_info = object.seo_infos.where(kind: kind).last
-      self.base_presenter = NoCms::Seo::Presenters::BasePresenter.new
     end
 
     def title
-      seo_info.title.blank? ? default_title : seo_info.title
-    end
-
-    def default_title
-      base_presenter.title
+      seo_info.title.blank? ? super : seo_info.title
     end
 
     def description
-      seo_info.description.blank? ? default_description : seo_info.description
+      seo_info.description.blank? ? super : seo_info.description
     end
 
     def default_description
@@ -25,19 +20,11 @@ module NoCms::Seo::Presenters
     end
 
     def no_index?
-      default_no_index? || seo_info.no_index?
-    end
-
-    def default_no_index?
-      false
+      seo_info.no_index?
     end
 
     def no_follow?
-      default_no_follow? || seo_info.no_follow?
-    end
-
-    def default_no_follow?
-      false
+      seo_info.no_follow?
     end
 
   end
