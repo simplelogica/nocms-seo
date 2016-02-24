@@ -198,10 +198,20 @@ $ rake
 
 Then tests should run (and pass, I hope...).
 
+And use appraisal to test multiple rails versions and db's (set your database configuration for each db in the dummy app)
+
+```
+$ appraisal install
+$ appraisal rake db:create RAILS_ENV=test # if needed
+$ appraisal rake db:migrate RAILS_ENV=test # if needed
+$ appraisal rake
+```
+
+
 Now we can run the dummy app console or server:
 
 ```
 $ rake db:migrate
 $ cd spec/dummy
-spec/dummy$ rails console
+$ rails console
 ```
