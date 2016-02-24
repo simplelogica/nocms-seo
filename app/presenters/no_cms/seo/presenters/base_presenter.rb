@@ -1,11 +1,11 @@
 class NoCms::Seo::Presenters::BasePresenter
 
   def title
-    I18n.t('no_cms.seo.default_title')
+    I18n.t('.default_title', default: I18n.t('no_cms.seo.default_title'))
   end
 
   def description
-    I18n.t('no_cms.seo.default_description')
+    I18n.t('.default_description', default: I18n.t('no_cms.seo.default_description'))
   end
 
   def canonical_url host
