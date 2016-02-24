@@ -10,7 +10,7 @@ module NoCms::Seo::SeoHelper
     content_tag :meta, nil, name: 'description', content: description unless description.blank?
   end
 
-  def title_tag default_title
+  def title_tag default_title = ''
     title = default_title.blank? ? @seo_info.title : default_title
     content_tag :title, title unless title.blank?
   end
