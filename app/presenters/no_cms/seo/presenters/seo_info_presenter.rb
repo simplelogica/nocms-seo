@@ -8,23 +8,19 @@ module NoCms::Seo::Presenters
     end
 
     def title
-      seo_info.title.blank? ? super : seo_info.title
+      (seo_info && !seo_info.title.blank?) ? seo_info.title : super
     end
 
     def description
-      seo_info.description.blank? ? super : seo_info.description
-    end
-
-    def default_description
-      base_presenter.description
+      (seo_info && !seo_info.description.blank?) ? seo_info.description : super
     end
 
     def no_index?
-      seo_info.no_index?
+      seo_info && seo_info.no_index?
     end
 
     def no_follow?
-      seo_info.no_follow?
+      seo_info && seo_info.no_follow?
     end
 
   end
