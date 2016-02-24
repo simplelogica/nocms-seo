@@ -100,7 +100,17 @@ en: # Replace with your locale or omit it if you already have the locale file cr
       default_title: ""
 ```
 
-It's used by the basic behaviour in the `NoCms::Seo::Concerns::ControllerWithSeo` concern.
+Or set the default I18n for the view where helper is used:
+
+```
+en: # Replace with your locale or omit it if you already have the locale file created
+  posts:
+    index:
+      default_description: ""
+      default_title: ""
+```
+
+It's used by the basic behaviour in the `NoCms::Seo::Presenters::BasePresenter` concern.
 
 #### SeoInfo Presenter
 
@@ -140,18 +150,18 @@ NoCms::Seo::Presenters::SeoInfoPresenter.new(object, :mobile)
 
 Helpers are used from views to set SEO tags. Available helpers are:
 
-  - title_tag: Writes the <title> tag
-  - meta_description_tag: Writes the <meta name="description"> tag
-  - canonical_url_tag: Writes the <link rel="canonical"> tag
-  - robots_tag: Writes the <meta name"robots"> tag.
+  * title_tag: Writes the `<title>` tag
+  * meta_description_tag: Writes the `<meta name="description">` tag
+  * canonical_url_tag: Writes the `<link rel="canonical">` tag
+  * robots_tag: Writes the `<meta name"robots">` tag.
 
 The first three helpers can receive an string, in which case the corresponding tag will have that text as a value. This is commonly used in combination with a yield, so you can modify the title, description or canonical from any view with a content_for:
 
-```
-  <%= raw title_tag yield(:seo_title) %>
-  <%= raw meta_description_tag yield(:seo_meta_description) %>
-  <%= raw canonical_url_tag yield(:seo_canonical_url) %>
-```
+````ruby
+<%= raw title_tag yield(:seo_title) %>
+<%= raw meta_description_tag yield(:seo_meta_description) %>
+<%= raw canonical_url_tag yield(:seo_canonical_url) %>
+````
 
 The `robots_tag` helper can receive a hash with the keys `no_index` and `no_follow` set.
 
@@ -170,13 +180,12 @@ Since SEO information is always attached to another object there ¡s no separate
 Instead of a separate admin interface this engine includes a partial that can be used to render it as a basic admin interface attachable to any edit view of any object that has SEO info attached.
 
 ```ruby
-  <%= f.fields_for :seo_info do |f_seo| %>
-    <%= render 'no_cms/admin/seo/infos/form', f: f_seo %>
-  <% end -%>
+<%= f.fields_for :seo_info do |f_seo| %>
+  <%= render 'no_cms/admin/seo/infos/form', f: f_seo %>
+<% end -%>
 ```
 
 You can overwrite the view to customize it.
-
 
 # Development
 
