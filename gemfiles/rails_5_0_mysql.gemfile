@@ -2,8 +2,10 @@
 
 source "https://rubygems.org"
 
-gem "rails", "4.1.12"
-gem "globalize"
+gem "mysql2"
+gem "rails", "5.0.0"
+gem "globalize", :git => "git@github.com:globalize/globalize.git", :branch => "master"
+gem "activeresource", :github => "rails/activeresource"
 
 group :test do
   gem "faker"

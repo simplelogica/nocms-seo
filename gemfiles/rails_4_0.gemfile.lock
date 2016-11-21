@@ -2,8 +2,8 @@ PATH
   remote: ../
   specs:
     nocms-seo (1.0.0)
-      globalize (>= 4.0.0, < 5.1)
-      rails (> 4.0, < 4.3)
+      globalize (>= 4.0.0, < 5.2)
+      rails (> 4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -115,9 +115,13 @@ DEPENDENCIES
   appraisal
   factory_girl
   faker
+  globalize
   nocms-seo!
   rails (= 4.0.13)
   rspec-rails
   simplecov
   simplecov-json
   sqlite3
+
+BUNDLED WITH
+   1.10.6
