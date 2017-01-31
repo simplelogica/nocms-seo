@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20160218140633) do
 
   create_table "no_cms_seo_info_translations", force: :cascade do |t|
     t.integer  "no_cms_seo_info_id"
-    t.string   "locale",             limit: 255
-    t.string   "title",              limit: 255
+    t.string   "locale"
+    t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160218140633) do
 
   create_table "no_cms_seo_infos", force: :cascade do |t|
     t.integer  "target_id"
-    t.string   "target_type",          limit: 255
+    t.string   "target_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "no_index",             default: false
@@ -38,11 +38,11 @@ ActiveRecord::Schema.define(version: 20160218140633) do
     t.string   "kind"
   end
 
-  add_index "no_cms_seo_infos", ["target_id", "target_type", "kind"], name: "index_no_cms_seo_infos_kind", unique: true
-  add_index "no_cms_seo_infos", ["target_type", "target_id"], name: "index_no_cms_seo_infos_on_target_type_and_target_id"
+  add_index "no_cms_seo_infos", ["target_id", "target_type", "kind"], name: "index_no_cms_seo_infos_kind", unique: true, using: :btree
+  add_index "no_cms_seo_infos", ["target_type", "target_id"], name: "index_no_cms_seo_infos_on_target_type_and_target_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
-    t.string   "title",      limit: 255
+    t.string   "title"
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

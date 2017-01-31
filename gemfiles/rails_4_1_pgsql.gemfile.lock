@@ -1,9 +1,9 @@
 PATH
   remote: ../
   specs:
-    nocms-seo (1.0.0)
-      globalize (>= 4.0.0, < 5.1)
-      rails (> 4.0, < 4.3)
+    nocms-seo (1.0.1)
+      globalize (>= 4.0.0, < 5.5)
+      rails (>= 4.0.0, < 5.1)
 
 GEM
   remote: https://rubygems.org/

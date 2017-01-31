@@ -27,3 +27,17 @@ appraise "rails-4-2-pgsql" do
   gem "pg"
   gem "rails", "4.2.3"
 end
+
+appraise "rails-5-0-mysql" do
+  gem "mysql2"
+  gem "rails", "5.0.0"
+  gem "globalize", git: 'git@github.com:globalize/globalize.git', branch: 'master'
+  gem 'activeresource', github: 'rails/activeresource'
+end
+
+appraise "rails-5-0-pgsql" do
+  gem "pg"
+  gem "rails", "5.0.0"
+  gem "globalize", git: 'git@github.com:globalize/globalize.git', branch: 'master'
+  gem 'activeresource', github: 'rails/activeresource'
+end
