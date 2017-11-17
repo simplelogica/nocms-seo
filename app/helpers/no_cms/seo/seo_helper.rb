@@ -2,12 +2,12 @@ module NoCms::Seo::SeoHelper
 
   def canonical_url_tag canonical_url = ''
     canonical_url = canonical_url.blank? ? @seo_info.canonical_url(request.host_with_port) : canonical_url
-    content_tag :link, nil, rel: 'canonical', href: canonical_url unless canonical_url.blank?
+    "<link  rel = 'canonical' href = '#{canonical_url}' >" unless canonical_url.blank?
   end
 
   def meta_description_tag default_description = ''
     description = default_description.blank? ? @seo_info.description : default_description
-    content_tag :meta, nil, name: 'description', content: description unless description.blank?
+    "<meta name = 'description' content = '#{description}' >" unless description.blank?
   end
 
   def title_tag default_title = ''
@@ -23,7 +23,7 @@ module NoCms::Seo::SeoHelper
     content += ', '
     content += no_follow ? "nofollow" : "follow"
 
-    content_tag :meta, nil, name: 'robots', content: content
+    "<meta name = 'robots' content = '#{content}' >"
   end
 
 end
