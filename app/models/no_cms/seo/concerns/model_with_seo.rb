@@ -26,7 +26,9 @@ module NoCms::Seo::Concerns::ModelWithSeo
       end
       dupped_model
     end
-    alias_method_chain :dup, :seo
+
+    alias_method :dup_without_seo, :dup
+    alias_method :dup, :dup_with_seo
   end
 
   module ClassMethods
