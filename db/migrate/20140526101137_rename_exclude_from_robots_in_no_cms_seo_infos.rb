@@ -1,11 +1,4 @@
-active_record_migration_class =
-  if Rails::VERSION::STRING[0..2].to_f >= 5
-    ActiveRecord::Migration[Rails::VERSION::STRING[0..2].to_f]
-  else
-    ActiveRecord::Migration
-  end
-
-class RenameExcludeFromRobotsInNoCmsSeoInfos < active_record_migration_class
+class RenameExcludeFromRobotsInNoCmsSeoInfos < ActiveRecord::Migration[6.0]
   def up
     add_column :no_cms_seo_infos, :exclude_from_sitemap, :boolean, default: false
     NoCms::Seo::Info.update_all 'exclude_from_sitemap=exclude_from_robots_txt'

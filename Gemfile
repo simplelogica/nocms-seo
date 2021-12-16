@@ -20,4 +20,5 @@ group :test do
   gem 'appraisal'
   gem 'simplecov'
   gem 'simplecov-json'
+  gem 'pg', '1.2.3'
 end

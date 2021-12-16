@@ -1,11 +1,4 @@
-active_record_migration_class =
-  if Rails::VERSION::STRING[0..2].to_f >= 5
-    ActiveRecord::Migration[Rails::VERSION::STRING[0..2].to_f]
-  else
-    ActiveRecord::Migration
-  end
-
-class CreateNoCmsSeoInfos < active_record_migration_class
+class CreateNoCmsSeoInfos < ActiveRecord::Migration[6.0]
   def change
     create_table :no_cms_seo_infos do |t|
       t.belongs_to :target, polymorphic: true, index: true
